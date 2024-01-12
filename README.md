@@ -73,7 +73,7 @@ With body (JSON):
 }
 ~~~
 
-Save the token of the response. It will be referred as JWT_TOKEN
+Save the token of the response. It will be referred as JWT_TOKEN.
 
 ### 3. Use the REST API
 
