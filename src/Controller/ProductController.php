@@ -35,6 +35,12 @@ class ProductController extends AbstractController
         }
 
         foreach ($parameter as $product) {
+            if (!is_array($product)) {
+                return $this->json([
+                    'message' => 'Not all products were created successfully',
+                    'error' => 'Malformed JSON'
+                ]);
+            }
             $productService->createOne($entityManager, $product);
         }
 
@@ -102,6 +108,12 @@ class ProductController extends AbstractController
         }
 
         foreach ($parameter as $product) {
+            if (!is_array($product)) {
+                return $this->json([
+                    'message' => 'Not all products were updated successfully',
+                    'error' => 'Malformed JSON'
+                ]);
+            }
             if (!$productService->updateOne($entityManager, $product)) {
                 return $this->json([
                     'message' => 'Not all products were updated successfully',
